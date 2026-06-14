@@ -1,52 +1,65 @@
 🌸 Iris Flower Classification
 
-My very first Machine Learning project! I built this to get hands-on experience with the end-to-end ML workflow—from loading data and visualizing it, to training models and making predictions.
+My first Machine Learning project — built to understand the end-to-end ML workflow from raw data to model evaluation.
 
-🎯 The Goal
-Classify Iris flowers into three species (Setosa, Versicolor, or Virginica) based on their sepal and petal measurements using Supervised Learning.
+🎯 Objective
 
-🛠️ Tools Used
-Python 
-Jupyter Notebook
-Pandas (Data manipulation)
-Matplotlib (Data visualization)
-Scikit-learn (ML models & preprocessing)
+Classify Iris flowers into three species — Setosa, Versicolor, or Virginica — based on sepal and petal measurements, using supervised learning.
 
-📊 The Dataset
-Used the classic Iris dataset (built into Scikit-learn). It contains 150 flowers with 4 features:
-Sepal length & width (cm)
-Petal length & width (cm)
+🛠️ Tech Stack
 
-Visualizing the data showed that petal measurements create very clear clusters, making them great predictors for the species.
+Python — Jupyter Notebook
+Pandas — data loading and manipulation
+Matplotlib — visualizations
+Scikit-learn — preprocessing, models, evaluation
 
-🧠 Models Built & Results
-I trained two different classification models to compare them:
+📊 Dataset
 
-1. K-Nearest Neighbors (KNN) — n_neighbors=3
-2. Logistic Regression — max_iter=200
+The classic Iris dataset (built into Scikit-learn): 150 samples, 3 classes, 4 features.
+Features include Sepal Length (cm), Sepal Width (cm), Petal Length (cm), and Petal Width (cm).
 
-Results
-Both models achieved 100% accuracy on the test set (30 flowers). The confusion matrix showed perfect predictions across all three species. 
+EDA finding: Petal measurements create far cleaner clusters than sepal measurements. Setosa is almost perfectly separable; Versicolor and Virginica overlap slightly.
 
-Note: 100% accuracy is achievable here because the Iris dataset is small and very clean with distinct class boundaries. In real-world datasets, 80-90% is usually considered excellent!
+🧠 Models
 
-📝 What I Learned
-By building this project from scratch, I learned the foundational pipeline that every ML project follows:
+K-Nearest Neighbors (K=3) achieved 100% accuracy.
+Logistic Regression achieved 100% accuracy.
 
-Data Exploration: How to load, inspect, and plot data to find patterns before modeling.
-Train/Test Split: Why it's crucial to hide a portion of data from the model during training to evaluate it fairly.
-Feature Scaling: How to use StandardScaler to normalize data, and the critical difference between fit_transform (training data) and transform (test data).
-Model Evaluation: How to read a Confusion Matrix and why accuracy isn't the only metric that matters.
-Prediction: How to pass brand-new data into a trained model and interpret prediction probabilities.
+Both models achieved 100% on the 30-sample test set. This is expected — the Iris dataset is small, clean, and has very distinct class boundaries. Real-world datasets rarely behave this cleanly.
 
-🚀 How to Run
-1. Clone the repo
+🔬 K-Value Experiment
+
+Tested KNN across every K from 1 to 20 to observe how accuracy changes.
+
+Result: Accuracy held at 100% across all K values.
+
+Why? The dataset's class boundaries are so linearly separable that even a K=20 majority vote never misclassifies. A flat curve here isn't boring — it's informative about the nature of the data.
+
+Image: KNN Accuracy vs K Value (knn_k_comparison.png)
+
+📝 Key Concepts I Learned
+
+Train/Test Split — Never evaluate on training data. I used 80/20 split with random_state=42 for reproducibility.
+
+StandardScaler — KNN is distance-based, so feature scaling matters. Critical distinction: fit_transform on training data only; transform (no re-fit) on test data. Re-fitting on test data causes data leakage.
+
+Confusion Matrix — Accuracy alone can mislead. The matrix confirmed no off-diagonal errors — the model wasn't accidentally correct.
+
+Model Comparison — Running two algorithms side by side showed that for linearly separable data, a simple Logistic Regression matches a more complex KNN. Model choice matters more on harder problems.
+
+🚀 Run It Yourself
+
 git clone https://github.com/Ira9181/iris-classification.git
-
-2. Install the required libraries
+cd iris-classification
 pip install numpy pandas matplotlib scikit-learn jupyter
-
-3. Launch Jupyter Notebook
 jupyter notebook
 
-4. Open the .ipynb file and run the cells!
+Open iris.ipynb and run all cells.
+
+📁 Structure
+
+The iris-classification folder contains iris.ipynb (Full notebook — EDA, models, K-value experiment) and README.md.
+
+🔮 What's Next
+
+This project established the pipeline. Next goals: Work with a messier, real-world dataset, explore cross-validation for more robust evaluation, try decision trees and random forests, and start working with unstructured data (text/images).
