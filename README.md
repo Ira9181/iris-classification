@@ -35,7 +35,7 @@ Result: Accuracy held at 100% across all K values.
 
 Why? The dataset's class boundaries are so linearly separable that even a K=20 majority vote never misclassifies. A flat curve here isn't boring — it's informative about the nature of the data.
 
-Image: KNN Accuracy vs K Value (knn_k_comparison.png)
+
 
 📝 Key Concepts I Learned
 
