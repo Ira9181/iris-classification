@@ -9,8 +9,11 @@ Classify Iris flowers into three species — Setosa, Versicolor, or Virginica �
 🛠️ Tech Stack
 
 Python — Jupyter Notebook
+
 Pandas — data loading and manipulation
+
 Matplotlib — visualizations
+
 Scikit-learn — preprocessing, models, evaluation
 
 📊 Dataset
